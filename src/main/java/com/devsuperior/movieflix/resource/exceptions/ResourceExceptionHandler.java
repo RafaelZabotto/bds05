@@ -1,10 +1,9 @@
-package com.devsuperior.dslearnbds.resources.exceptions;
+package com.devsuperior.movieflix.resource.exceptions;
 
-
-import com.devsuperior.dslearnbds.services.exceptions.DatabaseException;
-import com.devsuperior.dslearnbds.services.exceptions.ForbiddenException;
-import com.devsuperior.dslearnbds.services.exceptions.ResourceNotFoundException;
-import com.devsuperior.dslearnbds.services.exceptions.UnathorizedException;
+import com.devsuperior.movieflix.services.exceptions.DatabaseException;
+import com.devsuperior.movieflix.services.exceptions.ForbiddenException;
+import com.devsuperior.movieflix.services.exceptions.ResourceNotFoundException;
+import com.devsuperior.movieflix.services.exceptions.UnathorizedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -17,6 +16,7 @@ import java.time.Instant;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {
+
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<StandardError> entityNotFound(ResourceNotFoundException exception, HttpServletRequest request) {
@@ -63,12 +63,6 @@ public class ResourceExceptionHandler {
     public ResponseEntity<OAuthCustomError> forbidden(ForbiddenException exception, HttpServletRequest request) {
         OAuthCustomError err = new OAuthCustomError("Forbidden", exception.getMessage());
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(err);
-    }
-
-    @ExceptionHandler(UnathorizedException.class)
-    public ResponseEntity<OAuthCustomError> unathorized(UnathorizedException exception, HttpServletRequest request) {
-        OAuthCustomError err = new OAuthCustomError("Unathorized", exception.getMessage());
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(err);
     }
 
 }

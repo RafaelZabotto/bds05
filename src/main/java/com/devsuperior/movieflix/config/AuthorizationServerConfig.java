@@ -59,9 +59,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         clients.inMemory().withClient(clientId) //Nome para quando a requisição chegar ao backend, senão não é aceito.
                 .secret(bCryptPasswordEncoder.encode(clientSecret))
                 .scopes("read", "write")    //Permissões
-                .authorizedGrantTypes("password", "refresh_token") //Padrão OAuth
-                .accessTokenValiditySeconds(jwtDuration) //tempo de expiração do token em segundos (1 DIA)
-                .refreshTokenValiditySeconds(jwtDuration); //tempo de expiração do refresh_token em segundos (1 DIA)
+                .authorizedGrantTypes("password") //Padrão OAuth
+                .accessTokenValiditySeconds(jwtDuration); //tempo de expiração do token em segundos (1 DIA)
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.devsuperior.dslearnbds.services.exceptions;
+package com.devsuperior.movieflix.services.exceptions;
 
 public class DatabaseException extends RuntimeException{
     private static final long serialVersionUID = 1L;

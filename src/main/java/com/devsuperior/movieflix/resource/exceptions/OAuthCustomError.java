@@ -1,6 +1,7 @@
-package com.devsuperior.dslearnbds.resources.exceptions;
+package com.devsuperior.movieflix.resource.exceptions;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 
 public class OAuthCustomError implements Serializable {
